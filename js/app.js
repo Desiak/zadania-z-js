@@ -3,12 +3,10 @@
 document.addEventListener('DOMContentLoaded', function() {
       // tutaj będziemy umieszczać kod ze wszystkich zadań
 
-      console.log("działa");
 
 const dropdownTrigger= document.querySelector(".for-dropdown");
 const dropdownSection= document.querySelector(".dropdown");
 
-console.log(dropdownSection, dropdownTrigger);
 	
 
 	dropdownTrigger.addEventListener("mouseover",()=>{
@@ -23,7 +21,6 @@ console.log(dropdownSection, dropdownTrigger);
 
 	function toggleMenu(){
 
-console.log(this);
 		if(this.previousElementSibling.style.display==="none" || this.previousElementSibling.style.display===""){
 			this.previousElementSibling.style.display="block";
 			this.innerHTML = 'MNIEJ <span class="glyphicon glyphicon-chevron-up"></span>';
@@ -36,7 +33,6 @@ this.previousElementSibling.style.display="none";
 			}
 
 			const buttons= document.querySelectorAll(".read-more");
-	console.log(buttons[0].previousElementSibling);
 	for(var i=0;i<buttons.length; i++){
 		buttons[i].addEventListener("click", toggleMenu);
 
@@ -45,7 +41,6 @@ this.previousElementSibling.style.display="none";
 	//zadanie 3
 	const navbar= document.querySelector(".navbar");
 	window.addEventListener("scroll", function(e){
-		console.log(window.pageYOffset);
 		if(window.pageYOffset>100){navbar.style.borderBottom="20px solid red";}
 		else{navbar.style.borderBottom=""}
 	})
@@ -62,8 +57,7 @@ this.previousElementSibling.style.display="none";
 	console.log(revs, dots);
 	for (var i=0; i<dots.length; i++){
 		dots[i].addEventListener('click', function(){
-			console.log(this);
-			// dots.indexOf(this);
+			
 		})
 	}
 
@@ -102,6 +96,61 @@ this.previousElementSibling.style.display="none";
 		dots[3].classList.add("active");
 		revs[3].classList.add("visible");
 	})
+
+	//zadanie 6
+	const inputTextField= document.querySelector(".form-control");
+	const addTaskButton= document.querySelector(".add-task-btn");
+	const tasksList = document.querySelector(".list");
+
+const hint = document.createElement("div");
+			hint.innerText="Task name is too short!";
+			hint.classList.add("alert", "alert-danger");
+			document.querySelector(".input-group").appendChild(hint);
+			hint.style.display="none";
+	function addTask(){
+			//
+			
+			
+
+			const inputValue= inputTextField.value;
+			if(inputValue!==""){console.log(inputValue);
+						const newTask = document.createElement("li");
+						const newTaskText= document.createElement("div");
+						newTaskText.classList.add("task-text");
+						
+						const checkedButton= document.createElement("button");
+						checkedButton.classList.add("btn", "btn-info");
+						checkedButton.innerText="Zrobione";
+						checkedButton.addEventListener("click", function(){
+			
+								newTaskText.classList.toggle("task-done");
+						}
+							)
+						
+			
+						const deleteButton= document.createElement("button");
+						deleteButton.classList.add("btn", "btn-primary");
+						deleteButton.addEventListener("click", function(){
+							console.log(this);
+							this.parentElement.remove();
+						})
+			
+						newTaskText.innerText=inputValue;
+						deleteButton.innerText="USUŃ";
+			
+			
+						newTask.appendChild(newTaskText);
+						newTask.appendChild(deleteButton);
+						newTask.appendChild(checkedButton);
+						tasksList.appendChild(newTask);
+						inputTextField.value='';
+						hint.style.display="none";
+					} else{
+						hint.style.display="table-header-group";
+					}
+	}
+
+	addTaskButton.addEventListener("click", addTask);
 	}
 
 	)
