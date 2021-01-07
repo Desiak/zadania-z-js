@@ -50,6 +50,11 @@ this.previousElementSibling.style.display="none";
 		else{navbar.style.borderBottom=""}
 	})
 
+	//zadanie 4
+	const backToTopButton= document.querySelector(".back-top");
+	backToTopButton.addEventListener("click", ()=>{
+		window.scroll(0,0);
+	})
 	}
 
 	)
