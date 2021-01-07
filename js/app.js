@@ -55,6 +55,53 @@ this.previousElementSibling.style.display="none";
 	backToTopButton.addEventListener("click", ()=>{
 		window.scroll(0,0);
 	})
+
+	//zadanie 5
+	const revs= document.querySelectorAll(".org");
+	const dots= document.querySelectorAll(".dot");
+	console.log(revs, dots);
+	for (var i=0; i<dots.length; i++){
+		dots[i].addEventListener('click', function(){
+			console.log(this);
+			// dots.indexOf(this);
+		})
+	}
+
+	dots[0].addEventListener("click", function(){
+		for(var i=0; i<dots.length; i++){
+			revs[i].classList.remove("visible");
+			dots[i].classList.remove("active");
+		}
+		dots[0].classList.add("active");
+		revs[0].classList.add("visible");
+	})
+
+	dots[1].addEventListener("click", function(){
+		for(var i=0; i<dots.length; i++){
+			revs[i].classList.remove("visible");
+			dots[i].classList.remove("active");
+		}
+		dots[1].classList.add("active");
+		revs[1].classList.add("visible");
+	})
+
+	dots[2].addEventListener("click", function(){
+		for(var i=0; i<dots.length; i++){
+			revs[i].classList.remove("visible");
+			dots[i].classList.remove("active");
+		}
+		dots[2].classList.add("active");
+		revs[2].classList.add("visible");
+	})
+
+	dots[3].addEventListener("click", function(){
+		for(var i=0; i<dots.length; i++){
+			revs[i].classList.remove("visible");
+			dots[i].classList.remove("active");
+		}
+		dots[3].classList.add("active");
+		revs[3].classList.add("visible");
+	})
 	}
 
 	)
