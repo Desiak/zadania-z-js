@@ -16,3 +16,6 @@ body {
 img {
   border: 5px dashed navy;
 }
+.more{
+	display: none;
+}
