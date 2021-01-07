@@ -42,6 +42,14 @@ this.previousElementSibling.style.display="none";
 
 }
 
+	//zadanie 3
+	const navbar= document.querySelector(".navbar");
+	window.addEventListener("scroll", function(e){
+		console.log(window.pageYOffset);
+		if(window.pageYOffset>100){navbar.style.borderBottom="20px solid red";}
+		else{navbar.style.borderBottom=""}
+	})
+
 	}
 
 	)
